@@ -1,0 +1,1 @@
+Whether you're a beginner honing your skills or an experienced developer looking for fresh problems, you'll find a diverse range of software-related challenges to tackle. Explore, learn, and level up your Python proficiency through hands-on experience with real-world coding scenarios.
