@@ -1,0 +1,1 @@
+Inside, you'll discover Python code examples that showcase the power of loop structures like for and while. Whether you're a newcomer to programming or looking to master the art of iteration, this folder provides insights into how to automate tasks and handle repeated actions efficiently.
