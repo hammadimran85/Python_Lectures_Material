@@ -1,0 +1,1 @@
+Inside, you'll explore Python code examples that unravel the power of decision statements, including if-else and switch cases. Whether you're new to coding or seeking to master these fundamental constructs, this folder guides you through conditional logic and its real-world applications.
