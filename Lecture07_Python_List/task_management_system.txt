@@ -1,0 +1,56 @@
+all_task = [
+    ['To Eat', 'Low', 'Not Done'],
+    ['To Work', 'High', 'Not Done'],
+    ['To Sleep', 'Medium', 'Not Done']
+]
+
+while True:
+    print('Task Management Menu')
+    print("1. Add task")
+    print("2. Display task")
+    print("3. Mark a task as completed")
+    print("4. Delete a task")
+    print("5. Quit")
+
+    choice = int(input('What do you want to do (1/2/3/4/5): '))
+
+    if choice == 1:
+        title = input('Enter task\'s Title: ')
+        priority = input('Enter task\'s Priority: ')
+        status = 'not done'
+        new_task = [title, priority, status]
+        all_task.append(new_task)
+        print('Your task added Successfully!')
+    elif choice == 2:
+        for i in range(len(all_task)):
+            print('--------------------------------')
+            print('Task No: ', i)
+            print('Title: ', all_task[i][0])
+            print('Priority: ', all_task[i][1])
+            print('Status: ', all_task[i][2])
+            print('--------------------------------')
+    elif choice == 3:
+        task_no = int(input('Enter Task No to Mark it as Completed: '))
+
+        for i in range(len(all_task)):
+            if task_no == i:
+                all_task[task_no][2] = 'Completed'
+                print('--------------------------------')
+                print('Task Marked as Completed')
+                print('--------------------------------')
+                break
+        else:
+            print('--------------------------------')
+            print('Task not Found!')
+            print('--------------------------------')
+    elif choice == 4:
+        task_no = int(input('Enter Task No to Mark it as Completed: '))
+
+        del all_task[task_no]
+
+        print('Task Deleted Successfully!')
+    elif choice == 5:
+        print('--------------------------------')
+        print('Thanks for using Task Management System')
+        print('--------------------------------')
+        break
