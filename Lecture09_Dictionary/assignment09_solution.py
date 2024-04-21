@@ -1,63 +1,82 @@
-address_book = {}
-while True:
-    print('*********Address Book***********')
-    print('Press 1 to add a contact to book')
-    print('Press 2 to display all contacts')
-    print('Press 3 to search a contact in address book')
-    print('Press 4 to delete a contact from address book')
-    print('Press 5 to update a contact')
-    print('Press 6 to exit address book')
+Phone_Book = {}
 
-    choice = int(input('Select yout choice: '))
+while True:
+    print('Welcome to Address Book System')
+    print('Press 1 to Add Contact')
+    print('Press 2 to Display All Contacts')
+    print('Press 3 to Delete Contact')
+    print('Press 4 to Update Contact')
+    print('Press 5 to Search Contact')
+    print('Press 6 to Exit')
+
+    choice = int(input('Enter your choice (1/2/3/4/5/6): '))
 
     if choice == 1:
-        name = str(input('Enter contact name').lower())
-        phone_number = int(input('Enter your phone number'))
-        address = str(input('Enter contact address'))
-        address_book[name] = {'name': name, 'phone_number': phone_number, 'address': address}
-        print(f'{name} successfully stored in address book')
-    elif choice == 2:
-        if not address_book:
-            print('Address book is empty')
-        else:
-            print('******All Contacts*****')
-            for index, name in enumerate(address_book.keys(), start=1):
-                print(f'{index}: {name}')
-    elif choice == 3:
-        name = str(input('Enter the contact name to search its info').lower())
-        if name in address_book:
-            print('Contact Details:')
-            print(f'Name: {name}')
-            print(f'Contact Number: ',address_book[name]['phone_number'])
-            print(f'Address: ',address_book[name]['address'])
-        else:
-            print('The name is not in found address book')
-    elif choice == 4:
-        name = str(input('Enter the contact name to delete its info').lower())
-        if not address_book:
-            print('Address book is empty')
-        else:
-            if name in address_book:
-                del address_book[name]
-                print(f'{name} is no more in the address book')
-            else:
-                print(f'{name} does not exist in the address book')
-    elif choice == 5:
-        name = str(input('Enter the contact name to delete its info').lower())
-        if not address_book:
-            print('Address book is empty')
-        else:
-            if name in address_book:
-                phone = input('Enter the updated phone number (Press Enter if you dont want to update number)')
-                address = input('Enter the updated address number (Press Enter if you dont want to update address)')
-                if phone:
-                    address_book[name]['phone_number'] = phone
-                if address:
-                    address_book[name]['address'] = address
-                print(f'{name} is updated in the address book')
-            else:
-                print(f'{name} does not exist in the address book')
+        name = input('Enter your name: ')
+        phone = input('Enter your phone: ')
+        address = input('Enter your address: ')
 
-    elif choice == 6:
-        print('Thanks for using address book app')
+        new_contact = {'name': name, 'phone_number': phone, 'address': address}
+
+        Phone_Book[name] = new_contact
+        print('---------------------------------')
+        print('Contact Added Successfully...!')
+        print('---------------------------------')
+
+    if choice == 2:
+        print('---------------------------------')
+        for key in Phone_Book.keys():
+            print('---------------------------------')
+            print('Name: ',Phone_Book[key]['name'].upper())
+            print('Phone Number: ', Phone_Book[key]['phone_number'])
+            print('Address: ', Phone_Book[key]['address'].upper())
+            print('---------------------------------')
+
+        print('---------------------------------')
+
+    if choice == 3:
+        name = input('Enter name to delete its Data')
+        if name in Phone_Book:
+            del Phone_Book[name]
+            print('---------------------------------')
+            print('Contact Deleted Successfully...!')
+            print('---------------------------------')
+        else:
+            print('---------------------------------')
+            print('Name not Found')
+            print('---------------------------------')
+
+    if choice == 4:
+        name = input('Enter name to update its Data')
+        if name in Phone_Book:
+            updated_phone = input('Enter updated phone number: ')
+            updated_address = input('Enter updated address: ')
+
+            if updated_phone:
+                Phone_Book[name]['phone_number'] = updated_phone
+
+            if updated_address:
+                Phone_Book[name]['address'] = updated_address
+
+            print('---------------------------------')
+            print('Contact Updated Successfully...!')
+            print('---------------------------------')
+        else:
+            print('---------------------------------')
+            print('Name not Found..!')
+            print('---------------------------------')
+
+    if choice == 5:
+        name = input('Enter name to Search its Data: ')
+
+        if name in Phone_Book:
+            print('---------------------------------')
+            for key, value in Phone_Book[name].items():
+                print(key.upper()+': ',value.upper())
+            print('---------------------------------')
+    
+    if choice == 6:
+        print('---------------------------------')
+        print('Thanks for using Address Book!')
+        print('---------------------------------')
         break
